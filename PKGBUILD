@@ -5,7 +5,7 @@
 
 pkgname=xf86-video-ati
 pkgver=7.9.0
-pkgrel=2
+pkgrel=3
 epoch=1
 pkgdesc="X.org ati video driver"
 arch=('x86_64')
@@ -21,6 +21,13 @@ validpgpkeys=('6DD4217456569BA711566AC7F06E8FDE7B45DAAC') # Eric Vidal
 
 build() {
   cd ${pkgname}-${pkgver}
+  
+  # Since pacman 5.0.2-2, hardened flags are now enabled in makepkg.conf
+  # With them, module fail to load with undefined symbol.
+  # See https://bugs.archlinux.org/task/55102 / https://bugs.archlinux.org/task/54845
+  export CFLAGS=${CFLAGS/-fno-plt}
+  export CXXFLAGS=${CXXFLAGS/-fno-plt}
+  export LDFLAGS=${LDFLAGS/,-z,now}
 
   ./configure --prefix=/usr \
 			  --with-glamor
