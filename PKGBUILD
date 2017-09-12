@@ -4,8 +4,8 @@
 # 						Contributor: Alexander Baldeck <alexander@archlinux.org>
 
 pkgname=xf86-video-ati
-pkgver=7.9.0
-pkgrel=3
+pkgver=7.10.0
+pkgrel=2
 epoch=1
 pkgdesc="X.org ati video driver"
 arch=('x86_64')
@@ -16,7 +16,7 @@ makedepends=('xorg-server-devel' 'X-ABI-VIDEODRV_VERSION=23')
 conflicts=('xorg-server<1.19.0' 'X-ABI-VIDEODRV_VERSION<23' 'X-ABI-VIDEODRV_VERSION>=24')
 groups=('xorg-drivers')
 source=(${url}/releases/individual/driver/${pkgname}-${pkgver}.tar.bz2)
-sha256sums=('3cad872e6330afb1707da11e4e959e6887ebe5bcd81854b4d2e496c52c059875')
+sha256sums=('ee51d642e3105cb5424f02622dc2966b87b42d498bb34104a70fcf6d4a8f4e79')
 validpgpkeys=('6DD4217456569BA711566AC7F06E8FDE7B45DAAC') # Eric Vidal
 
 build() {
