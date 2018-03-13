@@ -4,7 +4,7 @@
 # 						Contributor: Alexander Baldeck <alexander@archlinux.org>
 
 pkgname=xf86-video-ati
-pkgver=7.10.0
+pkgver=18.0.0
 pkgrel=2
 epoch=1
 pkgdesc="X.org ati video driver"
@@ -16,7 +16,7 @@ makedepends=('xorg-server-devel' 'X-ABI-VIDEODRV_VERSION=23')
 conflicts=('xorg-server<1.19.0' 'X-ABI-VIDEODRV_VERSION<23' 'X-ABI-VIDEODRV_VERSION>=24')
 groups=('xorg-drivers')
 source=(${url}/releases/individual/driver/${pkgname}-${pkgver}.tar.bz2)
-sha256sums=('ee51d642e3105cb5424f02622dc2966b87b42d498bb34104a70fcf6d4a8f4e79')
+sha512sums=('a9a634091f208099885039d42433cee061e03968417c0d535691833abcc9162d8d0a46f99bac902f0885beb14dcc9a011d104b535ffe492562fd5bb740ad4721')
 validpgpkeys=('6DD4217456569BA711566AC7F06E8FDE7B45DAAC') # Eric Vidal
 
 build() {
@@ -29,8 +29,7 @@ build() {
   export CXXFLAGS=${CXXFLAGS/-fno-plt}
   export LDFLAGS=${LDFLAGS/,-z,now}
 
-  ./configure --prefix=/usr \
-			  --with-glamor
+  ./configure --prefix=/usr 
   make
 }
 
